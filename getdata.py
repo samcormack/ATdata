@@ -32,7 +32,7 @@ class DataGrabber():
 			response.raise_for_status()
 		except ConnectionError:
 			self.callrecord.connected=False
-		except HTTPError:
+		except requests.HTTPError:
 			self.callrecord.http_status = response.status_code
 		else:
 			self.callrecord.connected = True
@@ -47,11 +47,12 @@ class DataGrabber():
 		url = "https://api.at.govt.nz/v2/gtfs/routes"
 		try:
 			response = requests.get(url,headers=headerspb)
-			print(response)
 			response.raise_for_status()
 		except ConnectionError:
+			print(response)
 			self.callrecord.connected=False
-		except HTTPError:
+		except requests.HTTPError:
+			print(response)
 			self.callrecord.http_status = response.status_code
 		else:
 			self.routesfeed = response.json()
