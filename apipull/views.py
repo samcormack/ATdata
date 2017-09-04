@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def call_log(request):
+    return render(request,'api_pull/call_log.html',{})

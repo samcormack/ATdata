@@ -1,0 +1,23 @@
+import os
+
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+# Django secret key for local use
+SECRET_KEY = ''
+
+# Auckland transport API key. See: https://dev-portal.at.govt.nz/
+AT_API_KEY = ''
+
+# Local database
+DATABASES = {
+    'default': {
+        'ENGINE': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+DEBUG =True
