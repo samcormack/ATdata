@@ -23,8 +23,7 @@ class CallRecord(models.Model):
     json_status = models.CharField(max_length=20,default='')
 
     def __str__(self):
-        return ['Time of call: ',self.timestamp,'\nHttp status: ',self.http_status,
-        '\nJSON status: ',self.json_status]
+        return 'Time of call: %s ' % str(self.timestamp)
 
 class Route(models.Model):
     route_id = models.CharField(max_length=100,primary_key=True)

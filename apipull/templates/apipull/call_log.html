@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Log of API calls</title>
+    <link rel="stylesheet" href="{% static 'apipull/apipull.css' %}">
+  </head>
+  <body>
+    <div>
+      <h1> Log of API calls to AT  </h1>
+    </div>
+    {% for call in call_list %}
+    <div>
+      <h3>{{call.timestamp}}</h3><br/>
+      Connected: {{call.connected}}<br/>
+      HTTP status: {{call.http_status}}<br/>
+    </div>
+    {% endfor %}
+  </body>
+</html>
