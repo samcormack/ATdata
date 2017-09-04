@@ -45,8 +45,15 @@ class DataGrabber():
 		headerspb = {'Ocp-Apim-Subscription-Key': settings.AT_API_KEY}
 		# Routes
 		url = "https://api.at.govt.nz/v2/gtfs/routes"
-		response = requests.get(url,headers=headerspb)
-		self.routesfeed = response.json()
+		try:
+			response = requests.get(url,headers=headerspb)
+		except ConnectionError:
+			self.callrecord.connected=False
+		except HTTPError:
+			self.callrecord.http_status = response.status_code
+		else:
+			self.routesfeed = response.json()
+		self.callrecord.save()
 		# stops
 		url = "https://api.at.govt.nz/v2/gtfs/stops"
 		response = requests.get(url,headers=headerspb)
