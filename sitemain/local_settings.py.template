@@ -1,3 +1,6 @@
+'''
+Local settings for ATdata django project. Fill in values and save as local_settings.py
+'''
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
