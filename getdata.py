@@ -47,6 +47,8 @@ class DataGrabber():
 		url = "https://api.at.govt.nz/v2/gtfs/routes"
 		try:
 			response = requests.get(url,headers=headerspb)
+			print(response)
+			response.raise_for_status()
 		except ConnectionError:
 			self.callrecord.connected=False
 		except HTTPError:
