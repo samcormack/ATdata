@@ -36,7 +36,7 @@ class Route(models.Model):
         return self.route_short_name
 
 class Stop(models.Model):
-    stop_id = models.CharField(max_length=10,primary_key=True)
+    stop_id = models.CharField(max_length=50,primary_key=True)
     stop_lat = models.DecimalField(max_digits=10,decimal_places=6)
     stop_lon = models.DecimalField(max_digits=10,decimal_places=6)
     location_type = models.CharField(max_length=1)
